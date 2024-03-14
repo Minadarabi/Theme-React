@@ -2,17 +2,17 @@ import { useEffect, useState } from "react"
 
 
 export const useLocalStorage = () => {
-    const [isDarkMode , setIsDarkMode] = useState(false);
-
-    useEffect(()=>{
-        const saveMode = localStorage.getItem("dark");
-        if(saveMode){
-            setIsDarkMode(JSON.parse(saveMode))
+    const [isDarkMode , setIsDarkMode] = useState(() => {
+        const mode = localStorage.getItem("theme")
+        if(mode !== null){
+            return JSON.parse(mode)
         }
+        return false
+    });
 
-    },[]);
+
     useEffect(()=>{
-        localStorage.setItem("dark" , JSON.stringify(isDarkMode));
+        localStorage.setItem("theme" , JSON.stringify(isDarkMode));
         if(isDarkMode){
             document.body.classList.add("dark-mode")
         }else{

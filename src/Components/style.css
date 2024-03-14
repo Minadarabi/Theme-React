@@ -1,4 +1,16 @@
 body.dark-mode{
     background-color: black;
     color: white;
+    transition: all .5s;
+}
+button{
+   font-weight: bold;
+   padding: 7px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
